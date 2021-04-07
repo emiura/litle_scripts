@@ -3,7 +3,8 @@
 DIALOG="zenity "
 
 # get local users
-local_users=$(grep home /etc/passwd | cut -d ":" -f 1)
+#local_users=$(grep home /etc/passwd | cut -d ":" -f 1)
+local_uers=$(samba-tool user list | egrep -v "dns-server|Guest|krbtgt")
 
 # prepare user list
 for user in $local_users; do
